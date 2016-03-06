@@ -1,0 +1,13 @@
+---
+- name: configure cron in the system
+  cron:
+    name: "{{ item.key }}"
+    minute: "{{ item.value.minute | default('*') }}"
+    hour: "{{ item.value.hour | default('*') }}"
+    day: "{{ item.value.day | default('*') }}"
+    weekday: "{{ item.value.weekday | default('*') }}"
+    month: "{{ item.value.month | default('*') }}"
+    user: "{{ item.value.user | default('root') }}"
+    state: "{{ item.value.state | default('present') }}"
+    job: "{{ item.value.job }}"
+  with_dict: "{{crons}}"

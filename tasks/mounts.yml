@@ -1,0 +1,9 @@
+---
+- name: configure mounts in the system
+  mount:
+    name: "{{ item.key }}"
+    src: "{{ item.value.src }}"
+    fstype: "{{ item.value.fstype }}"
+    opts: "{{ item.value.opts | default('defaults') }}"
+    state: "{{item.value.state}}"
+  with_dict: "{{mounts}}"

@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-role-type
+
+- name: include mounts dynamically
+  include: mounts.yml
+  when: mounts != ""
+
+- name: include cron dynamically
+  include: crons.yml
+  when: crons != ""
