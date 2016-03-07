@@ -36,7 +36,7 @@ Including an example of how to use your role (for instance, with variables passe
                state: mounted
                src: 8.8.8.8:/vol/vola0321/DI_AHS
                fstype: nfs
-           cron:
+           crons:
              check_file:
                name: check_file_stat
                minute: 0

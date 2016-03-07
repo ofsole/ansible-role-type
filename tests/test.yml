@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: ansible-role-type
+      crons:
+        check_dir:
+          name: "check dirs"
+          hour: 0
+          job: "ls -alh > /dev/null"
+        check_file:
+          name: check_file_stat
+          minute: 0
+          job: "test -d /tmp"
