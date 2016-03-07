@@ -1,7 +1,7 @@
-Role Name
+ansible-role-type
 =========
 
-A brief description of the role goes here.
+this role manages cron and mount.
 
 Requirements
 ------------
@@ -25,7 +25,26 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: type
+           mounts:
+             /var/hubcron:
+               state: mounted
+               src: google-v3a:/vol/vola0322/cron
+               fstype: nfs
+               opts: defaults
+             /opt/eis_cm_repos:
+               state: mounted
+               src: 8.8.8.8:/vol/vola0321/DI_AHS
+               fstype: nfs
+           cron:
+             check_file:
+               name: check_file_stat
+               minute: 0
+               job: "test -f /tmp/test"
+             check_dir:
+               name: "check dirs"
+               hour: 0
+               job: "ls -alh > /dev/null"
 
 License
 -------
@@ -35,4 +54,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Elvis Cai
