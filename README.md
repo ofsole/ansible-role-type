@@ -1,6 +1,8 @@
 ansible-role-type
 =========
 
+[![Build Status](https://travis-ci.org/ofsole/ansible-role-type.png?branch=master)](https://travis-ci.org/ofsole/ansible-role-type)
+
 this role manages cron and mount.
 
 Requirements
